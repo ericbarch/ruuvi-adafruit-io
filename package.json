@@ -1,0 +1,16 @@
+{
+  "name": "ruuvi-adafruit-io",
+  "version": "1.0.0",
+  "description": "Send ruuvitag data to Adafruit IO.",
+  "main": "index.js",
+  "dependencies": {
+    "mqtt": "^2.14.0",
+    "node-ruuvitag": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Barch",
+  "license": "ISC"
+}
