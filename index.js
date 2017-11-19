@@ -46,16 +46,16 @@ ruuvi.on('found', tag => {
     let battery = data.battery / 1000;
 
     if (shouldPublishAir()) {
-      publishAir();
+      publishAir(temp, humidity, pressure);
     }
 
     if (shouldPublishBattery()) {
-      publishBattery();
+      publishBattery(battery);
     }
   });
 });
 
-function publishAir () {
+function publishAir (temp, humidity, pressure) {
   if (localMqtt.connected) {
     localMqtt.publish(ADAFRUIT_IO_USERNAME + '/f/TempC', temp.toString());
     localMqtt.publish(ADAFRUIT_IO_USERNAME + '/f/Humidity', humidity.toString());
@@ -71,7 +71,7 @@ function publishAir () {
   lastAirPublish = (new Date()).getTime();
 }
 
-function publishBattery () {
+function publishBattery (battery) {
   if (localMqtt.connected) {
     localMqtt.publish(ADAFRUIT_IO_USERNAME + '/f/BatteryV', battery.toString());
   }
